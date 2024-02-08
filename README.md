@@ -142,3 +142,30 @@ aws eks update-kubeconfig --region us-west-2 --name three-tier-cluster
 kubectl get nodes
 ```
 
+To create namespace
+```
+$kubectl create namespace workshop
+namespace/workshop created
+```
+
+Create deployment
+```
+$ kubectl apply -f deployment.yaml  -n three-tier
+deployment.apps/mongodb created
+```
+create secrets pod
+```
+ $ kubectl apply -f secrets.yaml  -n three-tier
+secret/mongo-sec created
+
+```
+check the logs mongo pod
+```
+$ kubectl logs api-8d74f7f8f-5v8x7 -n three-tier
+Listening on port 8080...
+Connected to database.
+
+```
+
+Follow same for frotned backend and database manifest files
+
