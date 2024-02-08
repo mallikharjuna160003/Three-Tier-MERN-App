@@ -184,3 +184,13 @@ helm repo update eks
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=my-cluster --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
+expose the port
+
+```
+kubectl port-forward svc/api 8080:8080 -n three-tier
+```
+Final output::
+
+![image](https://github.com/mallikharjuna160003/Three-Tier-MERN-App/assets/74324685/1903d28f-1387-4cd0-846a-31b8798d30ac)
+
+
